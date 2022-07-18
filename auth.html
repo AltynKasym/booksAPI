@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <title>Authorization</title>
+  </head>
+  <body>
+    <div class="auth">
+      <h2 class="auth-title">Вход</h2>
+      <form class="auth__form">
+        <input
+          type="text"
+          class="auth__form-input"
+          placeholder="Имя пользователя"
+        />
+        <p class="auth__form-warning">*</p>
+        <input type="password" class="auth__form-input" placeholder="Пароль" />
+        <p class="auth__form-warning">*</p>
+
+        <input type="submit" class="auth__form-submit" value="Войти" />
+      </form>
+      <a href="./reg.html"> <div class="auth-link">Зарегистрироваться</div></a>
+    </div>
+    <script src="./js/auth.js"></script>
+  </body>
+</html>
