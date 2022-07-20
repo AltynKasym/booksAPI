@@ -3,6 +3,7 @@
 const authForm = document.querySelector(".auth__form");
 const authInputs = document.querySelectorAll(".auth__form-input");
 const authWarnings = document.querySelectorAll(".auth__form-warning");
+const authWarning = document.querySelector(".auth__warning");
 const authWarningText = ["Введите логин", "Введите пароль"];
 const authValid = [false, false];
 
@@ -22,9 +23,6 @@ authForm.onsubmit = (e) => {
   });
   if (authValid[0] && authValid[1] == true) {
     auth();
-    setTimeout(() => {
-      location.assign("./books.html");
-    }, 500);
   } else return;
 };
 
@@ -41,6 +39,15 @@ function auth() {
     body: JSON.stringify(authUser),
   }).then((response) => {
     const result = response.json();
+    if (response.status === 200) {
+      authWarning.classList.remove("warning-visable");
+      setTimeout(() => {
+        location.assign("./books.html");
+      }, 500);
+    } else {
+      authWarning.classList.add("warning-visable");
+    }
+    console.log(response);
     result.then((data) => {
       token = data.token;
       localStorage.setItem("token", token);

@@ -4,12 +4,125 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.min.css" />
     <title>Books</title>
   </head>
   <body>
     <section class="books">
-      <h1 class="books-title">Books</h1>
-      <ul class="books__list"></ul>
+      <div class="container">
+        <h1 class="books-title">Список книг</h1>
+        <p class="books-message">
+          Чтобы увидеть книги зарегистрируйтесь или войдите в систему
+        </p>
+        <ul class="books__list"></ul>
+      </div>
+    </section>
+
+    <section class="bookInfo">
+      <div class="bookInfo__inner">
+        <h1 class="bookInfo-title">1</h1>
+        <p class="bookInfo-author">1</p>
+        <div class="bookInfo__details">
+          <p class="bookInfo__details-publishHouse">1</p>
+          <p class="bookInfo__details-language">1</p>
+          <p class="bookInfo__details-publishYear">1</p>
+          <p class="bookInfo__details-pageAmount">1</p>
+          <p class="bookInfo__details-genres">1</p>
+        </div>
+        <button class="bookInfo__edit">Редактировать</button>
+        <svg
+          class="bookInfo-closeButton"
+          width="20"
+          height="20"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 26L26 2M2 2L26 26"
+            stroke="#282C37"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <section class="edit">
+      <div class="edit__inner">
+        <h2 class="edit-title">Редактировать книгу</h2>
+        <form class="edit__form">
+          <input
+            type="text"
+            class="edit__form-input"
+            placeholder="Название"
+            name="name"
+          />
+          <input
+            type="text"
+            class="edit__form-input"
+            placeholder="Автор"
+            name="author"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2022"
+            step="1"
+            value="2022"
+            class="edit__form-input"
+            placeholder="Год издания"
+            name="publishYear"
+          />
+          <input
+            type="text"
+            class="edit__form-input"
+            placeholder="Издательство"
+            name="publishHouse"
+          />
+          <input
+            type="text"
+            class="edit__form-input"
+            placeholder="Язык оригинала"
+            name="originalLanguage"
+          />
+          <input
+            type="text"
+            class="edit__form-input"
+            placeholder="Жанр"
+            name="genres"
+          />
+          <input
+            type="number"
+            class="edit__form-input"
+            placeholder="Количество страниц"
+            name="pagesNumber"
+          />
+          <div class="edit__form-favorite"></div>
+          <input
+            class="edit__form-sendButton"
+            type="submit"
+            value="Сохранить"
+          />
+        </form>
+        <svg
+          class="edit-closeButton"
+          width="20"
+          height="20"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 26L26 2M2 2L26 26"
+            stroke="#282C37"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
     </section>
   </body>
   <script src="./js/books.js"></script>

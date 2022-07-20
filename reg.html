@@ -10,12 +10,12 @@
   <body>
     <div class="reg">
       <h2 class="reg-title">Регистрация</h2>
-      <form class="reg__form">
+      <form class="reg__form" novalidate>
         <input
           type="text"
           class="reg__form-input input"
-          placeholder="Имя пользователя"
-          name="first-name"
+          placeholder="Логин"
+          name="login"
           data="name"
         />
         <p class="reg__form-warning">*</p>
@@ -25,12 +25,31 @@
           placeholder="Пароль"
         />
         <p class="reg__form-warning">*</p>
+
         <input
           type="password"
           class="reg__form-input checkInput"
           placeholder="Повторите пароль"
         />
+        <p class="reg__form-checkPassword">*</p>
+
+        <input
+          type="text"
+          class="reg__form-input input"
+          placeholder="Имя пользователя"
+          name="first-name"
+          data="first-name"
+        />
         <p class="reg__form-warning">*</p>
+
+        <input
+          type="number"
+          class="reg__form-input age"
+          placeholder="Возраст"
+          name="age"
+        />
+        <p class="reg__form-warning">*</p>
+
         <input
           type="submit"
           class="reg__form-submit"

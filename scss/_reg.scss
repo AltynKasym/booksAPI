@@ -35,7 +35,8 @@
       border: 1px solid red;
     }
 
-    &-warning {
+    &-warning,
+    &-checkPassword {
       visibility: hidden;
       font-size: 13px;
       color: #a60112;
