@@ -10,9 +10,15 @@
   <body>
     <section class="books">
       <div class="container">
+        <div class="userboard">
+          <button class="userboard-addBook button">Добавить книгу</button>
+          <p class="userboard-text">username</p>
+          <button class="userboard-logout button">выход</button>
+        </div>
         <h1 class="books-title">Список книг</h1>
-        <p class="books-message">
-          Чтобы увидеть книги зарегистрируйтесь или войдите в систему
+        <p class="books__message">
+          Чтобы увидеть книги <a href="./auth.html">войдите</a> в систему или
+          <a href="./reg.html">зарегистрируйтесь</a>
         </p>
         <ul class="books__list"></ul>
       </div>
@@ -51,23 +57,26 @@
 
     <section class="edit">
       <div class="edit__inner">
-        <h2 class="edit-title">Редактировать книгу</h2>
+        <h2 class="edit-title">Добавить книгу</h2>
         <form class="edit__form">
           <input
             type="text"
-            class="edit__form-input"
+            class="edit__form-input required"
+            ё
             placeholder="Название"
             name="name"
           />
+          <p class="edit__form-warning">* Объязательное поле</p>
           <input
             type="text"
-            class="edit__form-input"
+            class="edit__form-input required"
             placeholder="Автор"
             name="author"
           />
+          <p class="edit__form-warning">* Объязательное поле</p>
           <input
             type="number"
-            min="1900"
+            min="1700"
             max="2022"
             step="1"
             value="2022"
@@ -99,12 +108,30 @@
             placeholder="Количество страниц"
             name="pagesNumber"
           />
-          <div class="edit__form-favorite"></div>
-          <input
-            class="edit__form-sendButton"
-            type="submit"
-            value="Сохранить"
-          />
+          <h3 class="edit__form-favorite-title">Избранное</h3>
+          <div class="edit__form-favorite">
+            <label for="1">Да </label>
+            <input
+              type="radio"
+              id="1"
+              class="edit__form-input"
+              value="true"
+              name="isFavorite"
+              fav="1"
+            />
+
+            <label for="0">Нет </label>
+            <input
+              type="radio"
+              id="0"
+              class="edit__form-input"
+              value="false"
+              name="isFavorite"
+              fav="0"
+            />
+          </div>
+
+          <input class="edit__form-sendButton" type="submit" value="Добавить" />
         </form>
         <svg
           class="edit-closeButton"
@@ -124,6 +151,10 @@
         </svg>
       </div>
     </section>
+
+    <div class="preloader">
+      <img src="./assets/Preloader.gif" alt="Загрузка" class="preloader__img" />
+    </div>
   </body>
   <script src="./js/books.js"></script>
 </html>

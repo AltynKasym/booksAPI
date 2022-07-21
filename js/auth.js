@@ -1,4 +1,5 @@
-// Ауентификация
+// import { setUsername } from "./userboard.js";
+// Аутентификация
 
 const authForm = document.querySelector(".auth__form");
 const authInputs = document.querySelectorAll(".auth__form-input");
@@ -50,9 +51,15 @@ function auth() {
     console.log(response);
     result.then((data) => {
       token = data.token;
+      user = data.data;
       localStorage.setItem("token", token);
-      console.log("token", token);
-      console.log("data", data);
     });
   });
+
+  // setUsername(user.userName);
+}
+
+const username = document.querySelector(".userboard-text");
+function setUsername(name) {
+  username.textContent = name;
 }
