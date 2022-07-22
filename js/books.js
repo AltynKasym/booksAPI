@@ -12,6 +12,13 @@ const logout = document.querySelector(".userboard-logout");
 let token = localStorage.getItem("token");
 
 getBooks();
+setUsername();
+
+function setUsername() {
+  const username = document.querySelector(".userboard-text");
+  const name = localStorage.getItem("user");
+  username.textContent = name;
+}
 
 logout.addEventListener("click", userExit);
 
@@ -41,8 +48,12 @@ function getBooks() {
     } else {
       result.then((data) => {
         if (data == "") {
+          message.classList.add("books__message-visable");
           message.textContent = "Пока книг нету.";
-        } else showBooks(data);
+        } else {
+          showBooks(data);
+          message.classList.remove("books__message-visable");
+        }
       });
       userboard.classList.remove("userboard-hide");
       message.classList.remove("books__message-visable");
@@ -55,6 +66,9 @@ function showBooks(books) {
     createCard(book);
   });
 }
+
+const confirm = document.querySelector(".confirm");
+const confirmButtons = document.querySelectorAll(".confirm-button");
 
 function createCard(book) {
   const li = document.createElement("li");
@@ -95,6 +109,7 @@ ${book.isFavorite ? `fill="#a60112"` : `fill = "#B1B1B1"`}  />
     changeFavStatus(book);
   });
 
+  let del;
   deleteButton.addEventListener("click", () => {
     deleteBook(book);
   });

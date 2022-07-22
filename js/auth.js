@@ -53,13 +53,7 @@ function auth() {
       token = data.token;
       user = data.data;
       localStorage.setItem("token", token);
+      localStorage.setItem("user", user.username);
     });
   });
-
-  // setUsername(user.userName);
-}
-
-const username = document.querySelector(".userboard-text");
-function setUsername(name) {
-  username.textContent = name;
 }
