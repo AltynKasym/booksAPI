@@ -5,7 +5,6 @@ const closeButton = document.querySelector(".bookInfo-closeButton");
 const editButton = document.querySelector(".bookInfo__edit");
 const editWindow = document.querySelector(".edit");
 const editCloseButton = document.querySelector(".edit-closeButton");
-
 const message = document.querySelector(".books__message");
 const userboard = document.querySelector(".userboard");
 const logout = document.querySelector(".userboard-logout");
@@ -14,11 +13,15 @@ let token = localStorage.getItem("token");
 getBooks();
 setUsername();
 
+// Имя пользователя
+
 function setUsername() {
   const username = document.querySelector(".userboard-text");
   const name = localStorage.getItem("user");
   username.textContent = name;
 }
+
+// Выход пользователя
 
 logout.addEventListener("click", userExit);
 
@@ -28,6 +31,8 @@ function userExit() {
     location.assign("./auth.html");
   }, 100);
 }
+
+// Рендер книг
 
 function getBooks() {
   while (booksList.firstChild) {
@@ -70,6 +75,8 @@ function showBooks(books) {
 const confirm = document.querySelector(".confirm");
 const confirmButtons = document.querySelectorAll(".confirm-button");
 
+// Создание карточек книг
+
 function createCard(book) {
   const li = document.createElement("li");
   li.setAttribute("class", "books__list-item");
@@ -109,11 +116,13 @@ ${book.isFavorite ? `fill="#a60112"` : `fill = "#B1B1B1"`}  />
     changeFavStatus(book);
   });
 
-  let del;
   deleteButton.addEventListener("click", () => {
+    // confirm.classList.add("confirm-visable");
     deleteBook(book);
   });
 }
+
+// Детальная информация книг
 
 let bookData;
 
@@ -176,6 +185,8 @@ function addBook() {
   edit = false;
   editBook(bookData);
 }
+
+// Редактирование и добавление книг
 
 function editBook(bookData) {
   openWindow(editWindow, "edit-visable");
@@ -290,6 +301,8 @@ function sendEditedBook(e) {
   document.location.reload();
 }
 
+// Избранное
+
 function changeFavStatus(book) {
   fetch(`http://localhost:1717/books/update/${book.id}`, {
     method: "PUT",
@@ -303,6 +316,8 @@ function changeFavStatus(book) {
     getBooks();
   }, 200);
 }
+
+// Удаление книги
 
 function deleteBook(book) {
   fetch(`http://localhost:1717/books/delete/${book.id}`, {
